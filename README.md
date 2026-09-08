@@ -41,7 +41,6 @@ These issues can affect the overall shopping experience and make it harder for u
 
 ### Problem Screenshots
 
-text
 ![No Search Bar on Live Site](./screenshots/problem-no-search.png)
 
 ---
@@ -191,9 +190,7 @@ The `$regex` operator enables partial matching, while `"i"` makes the search cas
 
 ## Screenshot
 
-text
 ![Improved Search](./screenshots/search.png)
-
 
 ---
 
@@ -217,7 +214,7 @@ This creates unnecessary navigation and makes decision-making difficult.
 
 ## Solution
 
-A **Product Comparison** feature was implemented that allows users to select multiple products and compare them side by side.
+A **Product Comparison** feature was implemented that allows users to select up to 3 products and compare them side by side, including product image, price, category, weight, stock availability, tags, ingredients, and description — all in a single view.
 
 Users can easily compare important product details without repeatedly switching between product pages.
 
@@ -225,40 +222,43 @@ Users can easily compare important product details without repeatedly switching 
 
 ## How It Works
 
-1. User clicks the **Compare** button on a product.
-2. The selected product is added to the comparison list.
-3. Multiple products can be selected.
-4. User opens the comparison page.
-5. Product information is displayed in a comparison table.
+1. User clicks the **Compare** button on a product card.
+2. The selected product is added to the comparison list (shown as a live counter in the navbar, e.g. `Compare 3`).
+3. Up to 3 products can be selected at a time.
+4. User opens the `/compare` page.
+5. Full product details for all selected products are displayed side by side in a comparison table.
 
 ### Comparison Flow
 
 ```text
-Select Product
+Select Product (Compare button)
       ↓
-Add to Comparison List
+Add to Comparison List (max 3)
       ↓
 Select Another Product
       ↓
-Open Comparison Page
+Open /compare Page
       ↓
-Compare Product Details
+Compare Full Product Details Side by Side
 ```
 
-### Example Comparison Table
+### Comparison Table (as implemented)
 
-| Feature | Product A | Product B |
-|--------|-----------|-----------|
-| Product Name | Product A | Product B |
-| Price | ₹100 | ₹120 |
-| Category | Spices | Spices |
-| Description | Available | Available |
+| Feature | Masala Potato Chips | Spicy Mixture | Mango Pickle |
+|---|---|---|---|
+| **Price** | ₹60 | ₹90 | ₹120 |
+| **Category** | Snacks | Namkeen | Pickles |
+| **Weight** | 150g | 250g | 300g |
+| **Stock** | 40 Available | 60 Available | 30 Available |
+| **Tags** | spicy, crispy, vegetarian | spicy, traditional, popular | spicy, traditional, homemade |
+| **Ingredients** | Potatoes, Edible Oil, Spices, Salt | Gram Flour, Peanuts, Spices, Edible Oil | Raw Mango, Mustard Oil, Spices, Salt |
+| **Description** | Crunchy potato chips seasoned with traditional Indian spices. | Traditional Indian mixture with crunchy ingredients and spices. | Authentic homemade style mango pickle with aromatic spices. |
+
+Each column also displays the product's image and name above the table rows, and users can navigate back to the product listing via a **"← Back to Products"** link at the top of the page.
 
 ---
 
 ## Screenshot
-
-## Product Comparison
 
 ![Product Comparison](./screenshots/comparison.png)
 
@@ -334,10 +334,6 @@ This approach keeps the most recently viewed products available while avoiding d
 ---
 
 ## Screenshot
-
-> Add your recently viewed products screenshot here.
-
-## Recently Viewed Products
 
 ![Recently Viewed Products](./screenshots/recently-viewed.png)
 
@@ -566,9 +562,17 @@ The frontend application will run on the local development URL displayed in the 
 
 ---
 
+## Product Comparison
 
+![Product Comparison](./screenshots/comparison.png)
 
+---
 
+## Recently Viewed Products
+
+![Recently Viewed Products](./screenshots/recently-viewed.png)
+
+---
 
 # 14. Deployment & Repository
 
@@ -576,13 +580,11 @@ The application can be deployed using the following services:
 
 | Layer | Suggested Platform |
 |---|---|
-| Frontend | Vercel  |
-| Backend | Render  |
+| Frontend | Vercel |
+| Backend | Render |
 | Database | MongoDB Atlas |
 
-
 ---
-
 
 # Conclusion
 
