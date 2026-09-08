@@ -591,46 +591,13 @@ The application can be deployed using the following services:
 
 | Layer | Suggested Platform |
 |---|---|
-| Frontend | Vercel / Netlify |
-| Backend | Render / Railway |
+| Frontend | Vercel  |
+| Backend | Render  |
 | Database | MongoDB Atlas |
 
-**Live Demo:** `<deployment-url>`
-**GitHub Repository:** `<your-github-repository-url>`
 
 ---
 
-# Future Improvements
-
-Possible future enhancements include:
-
-- Advanced product filtering
-- Search suggestions and autocomplete
-- Persistent comparison lists
-- User authentication-based recently viewed history
-- Product recommendations
-- Wishlist functionality
-- AI-based product recommendations
-- Search analytics
-- Improved mobile responsiveness
-
----
-
-# Key Learnings
-
-Through this project, the following concepts were explored:
-
-- MERN stack development
-- RESTful API integration
-- MongoDB queries
-- Regular expressions for search
-- React state management
-- Local storage usage
-- Component-based UI development
-- Full-stack application architecture
-- Improving e-commerce user experience
-
----
 
 # Conclusion
 
@@ -648,7 +615,3 @@ These enhancements demonstrate how small but meaningful features can significant
 
 - GitHub: `<your-github-profile>`
 - LinkedIn: `<your-linkedin-profile>`
-
----
-
-⭐ If you found this project interesting, consider giving the repository a star!
