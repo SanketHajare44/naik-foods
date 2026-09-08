@@ -160,12 +160,12 @@ The search functionality matches the user-entered keyword with product names and
 
 ## How It Works
 
-1. User enters a keyword in the search bar.
-2. The frontend captures the search input.
-3. A request is sent to the backend API.
-4. The backend searches MongoDB using partial matching.
-5. Matching products are returned.
-6. Results are displayed dynamically to the user.
+1. Products are fetched from the backend API.
+2. The frontend stores the product data.
+3. User enters a keyword in the search input.
+4. The keyword is matched against product information.
+5. Matching products are filtered instantly.
+6. Results update dynamically without additional API calls.
 
 ### Example Search Flow
 
@@ -608,7 +608,16 @@ These enhancements demonstrate how small but meaningful features can significant
 
 ## 👨‍💻 Author
 
-**Sanket Sadashiv Hajare**
+<p align="center">
+  <b>Sanket Sadashiv Hajare</b>
+</p>
 
-- GitHub: `<your-github-profile>`
-- LinkedIn: `<your-linkedin-profile>`
+<p align="center">
+  <a href="https://github.com/SanketHajare44">
+    <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Profile"/>
+  </a>
+  
+  <a href="https://www.linkedin.com/in/sankethajare/">
+    <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Profile"/>
+  </a>
+</p>
