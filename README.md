@@ -41,11 +41,8 @@ These issues can affect the overall shopping experience and make it harder for u
 
 ### Problem Screenshots
 
-> Add screenshot(s) showing the gap on the live site — e.g. the header/store page with no search bar.
-
-```text
+text
 ![No Search Bar on Live Site](./screenshots/problem-no-search.png)
-```
 
 ---
 
