@@ -196,9 +196,9 @@ The `$regex` operator enables partial matching, while `"i"` makes the search cas
 
 > Add your improved search screenshot here.
 
-```text
+text
 ![Improved Search](./screenshots/search.png)
-```
+
 
 ---
 
@@ -263,11 +263,9 @@ Compare Product Details
 
 ## Screenshot
 
-> Add your product comparison screenshot here.
+## Product Comparison
 
-```text
 ![Product Comparison](./screenshots/comparison.png)
-```
 
 ---
 
@@ -344,9 +342,9 @@ This approach keeps the most recently viewed products available while avoiding d
 
 > Add your recently viewed products screenshot here.
 
-```text
-![Recently Viewed](./screenshots/recently-viewed.png)
-```
+## Recently Viewed Products
+
+![Recently Viewed Products](./screenshots/recently-viewed.png)
 
 ---
 
@@ -573,17 +571,9 @@ The frontend application will run on the local development URL displayed in the 
 
 ---
 
-## Product Comparison
 
-![Product Comparison](./screenshots/comparison.png)
 
----
 
-## Recently Viewed Products
-
-![Recently Viewed Products](./screenshots/recently-viewed.png)
-
----
 
 # 14. Deployment & Repository
 
