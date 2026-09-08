@@ -1,0 +1,242 @@
+require("dotenv").config();
+
+const mongoose = require("mongoose");
+const connectDB = require("./src/config/database");
+const Product = require("./src/models/product");
+
+const products = [
+    {
+        name: "Classic Potato Chips",
+        slug: "classic-potato-chips",
+        description: "Crispy salted potato chips made from carefully selected potatoes.",
+        price: 50,
+        category: "Snacks",
+        tags: ["crispy", "popular", "vegetarian"],
+        image: "https://placehold.co/600x400?text=Potato+Chips",
+        weight: "150g",
+        ingredients: ["Potatoes", "Edible Oil", "Salt"],
+        storageInstructions: "Store in a cool and dry place.",
+        stock: 50,
+        isFeatured: true,
+    },
+    {
+        name: "Masala Potato Chips",
+        slug: "masala-potato-chips",
+        description: "Crunchy potato chips seasoned with traditional Indian spices.",
+        price: 60,
+        category: "Snacks",
+        tags: ["spicy", "crispy", "vegetarian"],
+        image: "https://placehold.co/600x400?text=Masala+Chips",
+        weight: "150g",
+        ingredients: ["Potatoes", "Edible Oil", "Spices", "Salt"],
+        storageInstructions: "Store in a cool and dry place.",
+        stock: 40,
+        isFeatured: true,
+    },
+    {
+        name: "Banana Chips",
+        slug: "banana-chips",
+        description: "Crispy and lightly salted banana chips.",
+        price: 70,
+        category: "Snacks",
+        tags: ["healthy", "crispy", "vegetarian"],
+        image: "https://placehold.co/600x400?text=Banana+Chips",
+        weight: "200g",
+        ingredients: ["Raw Banana", "Coconut Oil", "Salt"],
+        storageInstructions: "Keep in an airtight container.",
+        stock: 35,
+        isFeatured: false,
+    },
+    {
+        name: "Spicy Mixture",
+        slug: "spicy-mixture",
+        description: "Traditional Indian mixture with crunchy ingredients and spices.",
+        price: 90,
+        category: "Namkeen",
+        tags: ["spicy", "traditional", "popular"],
+        image: "https://placehold.co/600x400?text=Spicy+Mixture",
+        weight: "250g",
+        ingredients: ["Gram Flour", "Peanuts", "Spices", "Edible Oil"],
+        storageInstructions: "Store in a cool and dry place.",
+        stock: 60,
+        isFeatured: true,
+    },
+    {
+        name: "Peanut Chikki",
+        slug: "peanut-chikki",
+        description: "Traditional crunchy sweet made with peanuts and jaggery.",
+        price: 80,
+        category: "Sweets",
+        tags: ["healthy", "traditional", "protein"],
+        image: "https://placehold.co/600x400?text=Peanut+Chikki",
+        weight: "200g",
+        ingredients: ["Peanuts", "Jaggery"],
+        storageInstructions: "Store in an airtight container.",
+        stock: 45,
+        isFeatured: true,
+    },
+    {
+        name: "Dry Fruit Chikki",
+        slug: "dry-fruit-chikki",
+        description: "Premium chikki made with mixed dry fruits and natural jaggery.",
+        price: 150,
+        category: "Sweets",
+        tags: ["healthy", "premium", "protein"],
+        image: "https://placehold.co/600x400?text=Dry+Fruit+Chikki",
+        weight: "200g",
+        ingredients: ["Almonds", "Cashews", "Pistachios", "Jaggery"],
+        storageInstructions: "Store in a cool and dry place.",
+        stock: 25,
+        isFeatured: true,
+    },
+    {
+        name: "Mango Pickle",
+        slug: "mango-pickle",
+        description: "Authentic homemade style mango pickle with aromatic spices.",
+        price: 120,
+        category: "Pickles",
+        tags: ["spicy", "traditional", "homemade"],
+        image: "https://placehold.co/600x400?text=Mango+Pickle",
+        weight: "300g",
+        ingredients: ["Raw Mango", "Mustard Oil", "Spices", "Salt"],
+        storageInstructions: "Store in a cool and dry place. Use a dry spoon.",
+        stock: 30,
+        isFeatured: false,
+    },
+    {
+        name: "Lemon Pickle",
+        slug: "lemon-pickle",
+        description: "Tangy and spicy lemon pickle prepared using traditional recipes.",
+        price: 110,
+        category: "Pickles",
+        tags: ["tangy", "spicy", "traditional"],
+        image: "https://placehold.co/600x400?text=Lemon+Pickle",
+        weight: "300g",
+        ingredients: ["Lemon", "Salt", "Spices", "Oil"],
+        storageInstructions: "Store in a cool and dry place.",
+        stock: 20,
+        isFeatured: false,
+    },
+    {
+        name: "Tomato Ketchup",
+        slug: "tomato-ketchup",
+        description: "Rich and flavorful tomato ketchup made from ripe tomatoes.",
+        price: 100,
+        category: "Sauces",
+        tags: ["popular", "vegetarian", "kids"],
+        image: "https://placehold.co/600x400?text=Tomato+Ketchup",
+        weight: "500g",
+        ingredients: ["Tomato", "Sugar", "Salt", "Spices"],
+        storageInstructions: "Refrigerate after opening.",
+        stock: 55,
+        isFeatured: true,
+    },
+    {
+        name: "Spicy Garlic Chutney",
+        slug: "spicy-garlic-chutney",
+        description: "Authentic spicy garlic chutney perfect with snacks and meals.",
+        price: 130,
+        category: "Chutneys",
+        tags: ["spicy", "garlic", "traditional"],
+        image: "https://placehold.co/600x400?text=Garlic+Chutney",
+        weight: "250g",
+        ingredients: ["Garlic", "Red Chilli", "Salt", "Oil"],
+        storageInstructions: "Refrigerate after opening.",
+        stock: 35,
+        isFeatured: false,
+    },
+    {
+        name: "Coconut Chutney Powder",
+        slug: "coconut-chutney-powder",
+        description: "Flavorful dry coconut chutney powder with roasted spices.",
+        price: 140,
+        category: "Chutneys",
+        tags: ["traditional", "healthy", "vegetarian"],
+        image: "https://placehold.co/600x400?text=Coconut+Chutney",
+        weight: "200g",
+        ingredients: ["Dry Coconut", "Red Chilli", "Garlic", "Spices"],
+        storageInstructions: "Store in an airtight container.",
+        stock: 28,
+        isFeatured: false,
+    },
+    {
+        name: "Roasted Almonds",
+        slug: "roasted-almonds",
+        description: "Premium roasted almonds, lightly salted and ready to eat.",
+        price: 250,
+        category: "Dry Fruits",
+        tags: ["healthy", "premium", "protein"],
+        image: "https://placehold.co/600x400?text=Roasted+Almonds",
+        weight: "200g",
+        ingredients: ["Almonds", "Salt"],
+        storageInstructions: "Store in an airtight container.",
+        stock: 40,
+        isFeatured: true,
+    },
+    {
+        name: "Cashew Nuts",
+        slug: "cashew-nuts",
+        description: "Premium quality whole cashew nuts.",
+        price: 300,
+        category: "Dry Fruits",
+        tags: ["healthy", "premium", "protein"],
+        image: "https://placehold.co/600x400?text=Cashew+Nuts",
+        weight: "200g",
+        ingredients: ["Cashew Nuts"],
+        storageInstructions: "Store in a cool and dry place.",
+        stock: 30,
+        isFeatured: true,
+    },
+    {
+        name: "Multigrain Cookies",
+        slug: "multigrain-cookies",
+        description: "Crunchy cookies made with nutritious multigrain flour.",
+        price: 120,
+        category: "Bakery",
+        tags: ["healthy", "vegetarian", "snack"],
+        image: "https://placehold.co/600x400?text=Multigrain+Cookies",
+        weight: "250g",
+        ingredients: ["Wheat Flour", "Oats", "Millet", "Sugar"],
+        storageInstructions: "Store in an airtight container.",
+        stock: 45,
+        isFeatured: false,
+    },
+    {
+        name: "Chocolate Cookies",
+        slug: "chocolate-cookies",
+        description: "Delicious crunchy cookies with rich chocolate flavor.",
+        price: 130,
+        category: "Bakery",
+        tags: ["chocolate", "popular", "snack"],
+        image: "https://placehold.co/600x400?text=Chocolate+Cookies",
+        weight: "250g",
+        ingredients: ["Wheat Flour", "Cocoa", "Sugar", "Butter"],
+        storageInstructions: "Store in an airtight container.",
+        stock: 50,
+        isFeatured: true,
+    },
+];
+
+const seedProducts = async () => {
+    try {
+        await connectDB();
+
+        // Clear existing products before inserting
+        await Product.deleteMany();
+
+        // Insert sample products
+        await Product.insertMany(products);
+
+        console.log(`${products.length} products seeded successfully`);
+
+        await mongoose.connection.close();
+        console.log("Database connection closed");
+
+        process.exit(0);
+    } catch (error) {
+        console.error("Seeding failed:", error.message);
+        process.exit(1);
+    }
+};
+
+seedProducts();
