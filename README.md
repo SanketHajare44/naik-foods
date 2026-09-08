@@ -194,8 +194,6 @@ The `$regex` operator enables partial matching, while `"i"` makes the search cas
 
 ## Screenshot
 
-> Add your improved search screenshot here.
-
 text
 ![Improved Search](./screenshots/search.png)
 
