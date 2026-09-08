@@ -1,16 +1,26 @@
-# 🛒 Naik Foods – E-commerce Feature Enhancement
+<h1 align="center">🛒 Naik Foods – E-commerce Feature Enhancement</h1>
 
-A full-stack MERN e-commerce application enhancement project developed for **Naik Foods**. This project focuses on improving the overall product discovery and shopping experience by implementing useful features such as **Improved Partial Search, Product Comparison, and Recently Viewed Products**.
+<p align="center">
+  A full-stack MERN project focused on improving product discovery
+  and the shopping experience.
+</p>
 
----
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Completed-success?style=flat-square" />
+  <img src="https://img.shields.io/badge/React-Frontend-61DAFB?style=flat-square&logo=react&logoColor=white" />
+  <img src="https://img.shields.io/badge/Node.js-Backend-339933?style=flat-square&logo=node.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/MongoDB-Database-47A248?style=flat-square&logo=mongodb&logoColor=white" />
+</p>
 
-## 🔗 Quick Links
+<p align="center">
+  <a href="https://naik-foods-client.vercel.app/">
+    <img src="https://img.shields.io/badge/🚀%20LIVE%20DEMO-View%20Project-success?style=for-the-badge" alt="Live Demo"/>
+  </a>
+</p>
 
-| Resource | Link |
-|---|---|
-| 🚀 Live Demo | `<deployment-url>` |
-| 💻 GitHub Repository | `<your-github-repository-url>` |
-| 👨‍💻 Author | Sanket Sadashiv Hajare |
+<p align="center">
+  👨‍💻 <b>Author:</b> Sanket Sadashiv Hajare
+</p>
 
 ---
 
